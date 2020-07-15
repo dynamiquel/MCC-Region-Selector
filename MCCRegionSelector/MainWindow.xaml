@@ -1,0 +1,70 @@
+﻿<Window x:Class="MCCRegionSelector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MCCRegionSelector"
+        mc:Ignorable="d"
+        Title="Halo: MCC Region Selector" Height="450" MinHeight="450" Width="300" MinWidth="300">
+    <Grid Margin="8,0,8,8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel>
+            <TextBlock Text="Regions"
+                       FontSize="24"
+                       FontWeight="SemiBold"
+                       Padding="0,0,0,4"/>
+
+            <TextBlock Text="Select the server regions you wish to play in."
+                       Padding="0,0,0,4"/>
+            <TextBlock Text="This may also affect other Xbox Game Studios' games."
+                       TextWrapping="Wrap"
+                       Padding="0,0,0,8"/>
+
+            <ListBox x:Name="regionsListBox" 
+                     SelectionMode="Multiple"
+                     BorderThickness="0"
+                     ScrollViewer.CanContentScroll="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     SelectionChanged="regionsListBox_SelectionChanged">
+
+                <ListBoxItem Content="Central US"/>
+                <ListBoxItem Content="North Central US"/>
+                <ListBoxItem Content="East US"/>
+                <ListBoxItem Content="South Central US"/>
+                <ListBoxItem Content="West US"/>
+                <ListBoxItem Content="North Europe"/>
+                <ListBoxItem Content="West Europe"/>
+                <ListBoxItem Content="East Asia"/>
+                <ListBoxItem Content="South East Asia"/>
+                <ListBoxItem Content="East Japan"/>
+                <ListBoxItem Content="West Japan"/>
+                <ListBoxItem Content="East Australia"/>
+                <ListBoxItem Content="South East Australia"/>
+            </ListBox>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button x:Name="selectAllButton"
+                    Padding="8"
+                    Content="Select All"
+                    Click="selectAllButton_Click"/>
+            <Button x:Name="applyButton"
+                    Grid.Column="1"
+                    Padding="8"
+                    Content="Apply"
+                    Margin="8,0,0,0"
+                    IsEnabled="True"
+                    Click="applyButton_Click"/>
+        </Grid>
+        
+    </Grid>
+</Window>

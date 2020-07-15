@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>21-213669_halo-logo-png.ico</ApplicationIcon>
+    <Authors>Liam Hall</Authors>
+    <PackageIcon>21-213669_halo-logo-png.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\Liamk\Downloads\21-213669_halo-logo-png.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
