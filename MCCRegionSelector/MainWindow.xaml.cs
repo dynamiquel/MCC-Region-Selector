@@ -44,7 +44,7 @@ namespace MCCRegionSelector
                 ["East Japan"] = Region.E_JA,
                 ["West Japan"] = Region.W_JA,
                 ["East Australia"] = Region.E_AU,
-                ["South East Australia"] = Region.SE_AS
+                ["South East Australia"] = Region.SE_AU
             };
 
             try
@@ -54,6 +54,18 @@ namespace MCCRegionSelector
             catch
             {
                 MessageBox.Show("An error occured. Ensure this app is being run in Admin mode.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            // Select already selected regions, saved from a previous launch of the app
+            var selectedRegions = GetSelectedRegionsFromHostsFile();
+            foreach (ListBoxItem item in regionsListBox.Items)
+            {
+                Region region = stringToRegion[item.Content as string];
+                if (selectedRegions.Contains(region))
+                {
+                    item.IsSelected = true;
+                    item.Focus();
+                }
             }
         }
 
@@ -65,6 +77,15 @@ namespace MCCRegionSelector
         private static void SaveHostsFile(string newHosts)
         {
             File.WriteAllText(@"C:\Windows\System32\drivers\etc\hosts", newHosts);
+        }
+
+        private static IEnumerable<Region> GetSelectedRegionsFromHostsFile()
+        {
+            var hostsFile = GetHostsFile();
+            var regions = Enum.GetValues(typeof(Region)).Cast<Region>();
+            var regionHostNames = regions.ToDictionary(r => r, r => Regions.GetHostNames(r));
+            var selectedRegions = regionHostNames.Where(r => !r.Value.All(h => hostsFile.Contains(h))).Select(r => r.Key);
+            return selectedRegions;
         }
 
         private void regionsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
