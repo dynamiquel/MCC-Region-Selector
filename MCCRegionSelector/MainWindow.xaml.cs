@@ -76,7 +76,7 @@ namespace MCCRegionSelector
 
         private string ConfigureHostsFile(string hostsFile)
         {
-            var hostsToAddSB = new StringBuilder("\n");
+            var hostsToAddSB = new StringBuilder(Environment.NewLine);
 
             foreach (ListBoxItem item in regionsListBox.Items)
             {
@@ -90,7 +90,7 @@ namespace MCCRegionSelector
                     foreach (var host in hosts)
                     {
                         if (hostsFile.Contains(host))
-                            hostsFile = hostsFile.Replace($"\n{host}", string.Empty);
+                            hostsFile = hostsFile.Replace(Environment.NewLine + host, string.Empty);
                     }
                 }
                 // Add new.
@@ -108,7 +108,7 @@ namespace MCCRegionSelector
 
             // Removes the extra empty lines.
             hostsFile = hostsFile
-                .Replace("\r\n\r\n", string.Empty)
+                .Replace("\r\n\r\n", "\r\n")
                 .Replace("\r\r", string.Empty)
                 .Replace("\n\n", string.Empty);
 
