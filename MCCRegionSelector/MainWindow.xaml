@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MCCRegionSelector"
         mc:Ignorable="d"
-        Title="Halo: MCC Region Selector" Height="450" MinHeight="450" Width="300" MinWidth="300">
+        Title="Halo: MCC Region Selector" Height="460" MinHeight="460" Width="300" MinWidth="300">
     <Grid Margin="8,0,8,8">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -36,6 +36,7 @@
                 <ListBoxItem Content="East US"/>
                 <ListBoxItem Content="South Central US"/>
                 <ListBoxItem Content="West US"/>
+                <ListBoxItem Content="Brazil"/>
                 <ListBoxItem Content="North Europe"/>
                 <ListBoxItem Content="West Europe"/>
                 <ListBoxItem Content="East Asia"/>

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace MCCRegionSelector
 {
@@ -79,6 +77,10 @@ namespace MCCRegionSelector
                     "0.0.0.0 pfmsqosprod.japaneast.cloudapp.azure.com",
                     "0.0.0.0 xblcxplatqos-jae-9-18-2-0.cloudapp.net"
                 },
+                [Region.BZ] = new List<string>()
+                {
+                    "0.0.0.0 xblcxplatqos-brs-9-18-2-0.cloudapp.net"
+                }
             };
         }
 
@@ -110,6 +112,7 @@ namespace MCCRegionSelector
         W_JA,
         E_JA,
         E_AU,
-        SE_AU
+        SE_AU,
+        BZ
     }
 }
